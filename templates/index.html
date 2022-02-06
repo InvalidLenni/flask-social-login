@@ -1,0 +1,41 @@
+<!-- templates/index.html -->
+
+{% extends '_base.html' %}
+
+{% block content %}
+
+  <div style="text-align:center;">
+
+    {% if current_user.is_authenticated %}
+
+      <h3>
+        You are logged in as <a target="_blank" href="{{ social_account }}">{{current_user.username}}</a>
+      </h3>
+      <br />
+        <h4>
+          OAuth Provider: {{ provider }}
+        </h4>
+      <br />
+      <a href="{{url_for('logout')}}" class="btn btn-danger">Logout</a>
+    
+    {% else %}
+
+      <!-- GitHub button starts here -->
+      <a href="{{url_for('login_github')}}"  class="btn btn-secondary">
+        <i class="fa fa-github fa-fw"></i>
+        <span>Login with GitHub</span>
+      </a>
+      <!-- GitHub button ends here -->
+
+      <!-- Twitter button starts here -->
+      <a href="{{url_for('login_twitter')}}"  class="btn btn-primary">
+        <i class="fa fa-twitter fa-fw"></i>
+        <span>Login with Twitter</span>
+      </a>
+      <!-- Twitter button ends here -->
+
+    {% endif %}
+
+  </div>
+
+{% endblock content %}
