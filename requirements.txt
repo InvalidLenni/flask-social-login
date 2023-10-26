@@ -7,3 +7,4 @@ SQLAlchemy-Utils==0.38.2
 SQLAlchemy==1.4.31
 pyopenssl===22.0.0
 python-dotenv==0.19.2
+werkzeug>=3.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
